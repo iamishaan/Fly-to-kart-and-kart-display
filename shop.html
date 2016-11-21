@@ -1,0 +1,255 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="script.js"></script>
+<script>
+$(window).load(function(){
+$(document).ready(function(){
+    $(".shopping-cart").hover(function(){
+        $(".kart").css("display", "block");
+        },function(){
+        $(".kart").css("display", "none");
+        });
+    });
+});
+</script>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #F2EEE9;
+    font: normal 13px/1.5 Georgia, Serif;
+    color: #333;
+}
+.wrapper {
+    width: 705px;
+    margin: 20px auto;
+    padding: 20px;
+}
+h1 {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 4px 20px;
+    float: left;
+}
+.clear {
+    clear: both;
+}
+.items {
+    display: block;
+    margin: 20px 0;
+}
+.item {
+    background-color: #fff;
+    float: left;
+    margin: 0 0px 10px 40px;
+    width: 205px;
+    padding: 10px;
+    height: 350px;
+}
+.item img {
+    display: block;
+    margin: auto;
+}
+h2 {
+    font-size: 16px;
+    display: block;
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 10px 0;
+    padding: 0 0 5px 0;
+}
+button {
+    border: 1px solid #722A1B;
+    padding: 4px 14px;
+    background-color: #fff;
+    color: #722A1B;
+    text-transform: uppercase;
+    float:center;
+    margin: 5px 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+span {
+    float: right;
+}
+.shopping-cart {
+    display:inline-block;
+    background: url('http://cdn1.iconfinder.com/data/icons/jigsoar-icons/24/_cart.png') ;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px 0 0;
+    cursor:pointer;
+
+}
+.kart {
+    display:none;
+    width:800px;
+    position: absolute;
+    height:550px;
+    background:white;
+    opacity: 0.85;
+}
+.item1 {
+    color: #722A1B;
+    font-weight: bold;
+    font: normal 20px/1.5 Georgia, Serif;
+    padding: 4px 14px;
+    display:inline-block;
+    float: left;
+    position: relative;
+}
+.item2 {
+    color: #722A1C;
+    font-weight: bold;
+    font: normal 20px/1.5 Georgia, Serif;
+    position:absolute;
+    display:inline-block;
+    float: right;
+    position: relative;
+}
+
+</style>
+</head>
+<body>
+<div class="wrapper">
+     <h1>Supplements</h1>
+ <span><i class="shopping-cart"></i></span>
+    <div class="kart">
+         <h2> <center>Your kart as of now </center> </h2>
+        <div class="item1">
+        <div class="name1"></div>
+        <div class="qnt1"></div>
+        <div class="price1"></div> 
+        </div>
+        <div class="item2">
+        <div class="name2"></div>
+        <div class="qnt2"></div>
+        <div class="price2"></div> 
+        </div>
+        
+    </div>
+
+    <div class="clear"></div>
+    <!-- items -->
+    <center>
+    <div class="items">
+        <!-- single item -->
+        <div class="item">
+            <img src="protein.jpg" height="200px" width="150px" alt="item" />
+             <h2>Supplement 1</h2>
+             <form >
+  
+              Quantity: <input type="number" class="quantityi" name="quantity1" min="1" max="5">
+  
+            </form>
+             <br>
+             Product type:<select>
+                <option value="2">2 lbs</option>
+                <option value="5">5 lbs</option>
+                
+             </select>
+  
+
+            <p>Price:Rs 6299</em>
+            </p>
+            <button class="add-to-cart" id="add1" type="button">Add to cart</button>
+        </div>
+        <!--/ single item -->
+        <!-- single item -->
+        <div class="item">
+            <img src="protein2.jpg" height="200px" width="150px" alt="item" />
+             <h2>Supplement 2</h2>
+             <form >
+  
+              Quantity: <input type="number" class="quantityii" name="quantity2" min="1" max="5">
+  
+            </form>
+            <br>
+             Product type:<select>
+                           <option value="2">2 lbs</option>
+                           <option value="5">5 lbs</option>
+                
+                          </select>
+  
+
+            <p>Price:Rs6400  </em>
+            </p>
+            <button class="add-to-cart" id="add2" type="button">Add to cart</button>
+        </div>
+
+        <!--/ single item -->
+        <!-- single item -->
+        
+        <!--/ single item -->
+    </div>
+    </center>
+    <!--/ items -->
+</div>
+<script type="text/javascript">
+    $(".quantityi").on("change",function(){
+        var qty1 = $("input[name='quantity1'").val();/*
+        var qty2 =  $("input[name='quantity2'").val(); */
+        var item1  = {
+        name : 'IsoSport whey',
+        quantity1 : qty1,
+        price : 6299*qty1
+       
+    };/*
+    var item2  = {
+        name : 'Item2',
+        price : 20,
+        quantity1 : qty2
+    };*/
+
+    $("#add1").on("click",function(){
+        console.log(item1);
+        $(".name1").html(item1.name);
+        $(".qnt1").html(item1.quantity1);
+        $(".price1").html("Price in RS " + item1.price);
+    });
+
+    /*
+    $('#add2').on("click",function(){
+
+        console.log(item2);
+    });*/
+    })
+    
+    
+</script>
+<script type="text/javascript">
+    $(".quantityii").on("change",function(){
+        
+        var qty2 =  $("input[name='quantity2'").val(); 
+        var item2  = {
+        name : 'Synthia protein Limited',
+        quantity2 : qty2,
+        price : 6400*qty2
+    };
+
+    $("#add2").on("click",function(){
+        console.log(item2);
+        $(".name2").html(item2.name);
+        $(".qnt2").html(item2.quantity2);
+        $(".price2").html("Price in RS " +item2.price);
+    });
+
+    /*
+    $('#add2').on("click",function(){
+
+        console.log(item2);
+    });*/
+    })
+    
+    
+</script>
+<!--/ wrapper -->
+</body>
+</html>
